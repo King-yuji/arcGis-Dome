@@ -53,10 +53,6 @@ export default {
       const protocol = location.protocol
       const host = location.host
       let options = {
-        // url: "https://js.arcgis.com/4.15/",
-        // css: "https://js.arcgis.com/4.15/esri/themes/light/main.css"
-//         url: `http://183.250.128.116:5026/arcgis_js_api/init.js`,
-//         css: `http://183.250.128.116:5026/arcgis_js_api/esri/themes/light/main.css`,
         url: `/forward-assets/init.js`,
         css: `/forward-assets/esri/themes/light/main.css`
       }
@@ -76,10 +72,6 @@ export default {
       ])=>{
         var tiandituBaseUrl = "http://{subDomain}.tianditu.gov.cn"; //天地图服务地址
           var token = "5bddd36ea64d0d3afaa13d11669678ad"; //天地图管网申请token
-        // esriConfig.apiKey = "YOUR_API_KEY";
-        // {
-        //     basemap: "streets-navigation-vector",
-        //   }
           var map = new Map();
           this.map=map
           /**
@@ -93,26 +85,8 @@ export default {
             zoom: 16,
           });
           //球面墨卡托投影矢量底图
-          // var tiledLayer = new WebTileLayer({
-          //   urlTemplate:
-          //     tiandituBaseUrl +
-          //     "/cia_w/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=img&STYLE=default&FORMAT=tiles&TILEMATRIXSET=w&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=" +
-          //     token,
-          //   subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
-          // });
-
           //将天地图底图添加到map上
-          // map.add(tiledLayer);
-
           //矢量标注(球面墨卡托投影)
-          // var tiledLayerAnno = new WebTileLayer({
-          //   urlTemplate:
-          //     tiandituBaseUrl +
-          //     "/cia_w/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=cia&STYLE=default&FORMAT=tiles&TILEMATRIXSET=w&TILEMATRIX={level}&TILEROW={row}&TILECOL={col}&tk=" +
-          //     token,
-          //   subDomains: ["t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7"],
-          // });
-
           //标注添加到map上
           // map.add(tiledLayerAnno);
           const resolutions = [1.40625,0.703125,0.3515625,0.17578125,0.08789062500000015,0.043945312500000076,0.021972656250000007,0.010986328125000019,0.0054931640625000095,0.0027465820312500017,0.0013732910156250009,0.0006866455078124989,0.00034332275390624946,0.00017166137695312503,0.00008583068847656251,0.000042915344238281406,0.000021457672119140642,0.000010728836059570307,0.000005364418029785168,0.000002682209014892578,0.000001341104507446289];
@@ -354,25 +328,6 @@ export default {
           //点、线图层
           const graphicsLayer = new GraphicsLayer();
           this.map.add(graphicsLayer);
-          // const polyline = {
-          //   type: "polyline",
-          //   paths: [],
-          //   // [
-          //   //   [118.570907, 24.9096802], //Longitude, latitude
-          //   //   [118.570807, 24.9095802], //Longitude, latitude
-          //   //   [118.570307, 24.9094802], //Longitude, latitude
-          //   // ],
-          // };
-          // const simpleMarkerSymbol = {
-          //   type: "simple-line",
-          //   color: [68, 105, 225], // Orange
-          //   width: 3,
-          // };
-          // const pointGraphic = new Graphic({
-          //   geometry: polyline,
-          //   symbol: simpleMarkerSymbol,
-          // });
-          // graphicsLayer.add(pointGraphic);
 
           this.line = (path) => {
             this.view.goTo({
